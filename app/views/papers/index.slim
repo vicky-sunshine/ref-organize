@@ -1,0 +1,19 @@
+h1 papers
+= link_to "create new paper", new_paper_path
+table
+  thead
+    tr
+      td Title
+      td Author
+      td Book Title
+      td Year
+  tbody
+    - @papers.each do |paper|
+      tr
+        td= paper.title
+        td= paper.author
+        td= paper.book_title
+        td= paper.year
+        td
+          = link_to "編輯", edit_paper_path(paper)
+          = link_to "刪除", paper_path(paper), method: "delete", data: { confirm: "確認刪除" }

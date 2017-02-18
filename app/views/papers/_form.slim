@@ -1,0 +1,43 @@
+= form_for(@paper) do |f|
+  = f.label :doi
+  = f.text_field :doi
+  br/
+  = f.label :url
+  = f.text_field :url
+  br/
+  = f.label :title
+  = f.text_field :title
+  br/
+  = f.label :author
+  = f.text_field :author
+  br/
+  = f.label :book_title
+  = f.text_field :book_title
+  br/
+  = f.label :publisher
+  = f.text_field :publisher
+  br/
+  = f.label :volume
+  = f.text_field :volume
+  br/
+  = f.label :issue
+  = f.text_field :issue
+  br/
+  = f.label :pages
+  = f.text_field :pages
+  br/
+  = f.label :year
+  = f.text_field :year
+  br/
+  = f.label :month
+  = f.text_field :month
+  br/
+  = f.label :bibtex
+  = f.text_field :bibtex
+  br/
+  = f.label :note
+  = f.text_field :note
+  br/
+  = f.submit
+br/
+= link_to 'Back to paper index', papers_path
