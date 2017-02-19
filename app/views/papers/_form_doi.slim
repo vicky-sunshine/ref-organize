@@ -1,0 +1,7 @@
+= form_for(@paper, url: create_doi_papers_path) do |f|
+  = f.label :doi
+  = f.text_field :doi
+  br/
+  = f.submit
+br/
+= link_to 'Back to paper index', papers_path
