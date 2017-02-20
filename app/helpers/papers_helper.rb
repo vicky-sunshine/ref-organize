@@ -1,4 +1,6 @@
 module PapersHelper
+  include ActsAsTaggableOn::TagsHelper
+
   def author_shorten(author)
     return author if author.empty?
     shortens = author.split(" and ").map do |name|

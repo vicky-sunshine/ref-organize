@@ -4,7 +4,13 @@ class PapersController < ApplicationController
   before_action :find_paper, only: [:edit, :update, :destroy]
 
   def index
-    @papers = Paper.all
+    if params[:tags_name]
+      @papers = Paper.tagged_with(params[:tags_name])
+      tag_all
+    else
+      @papers = Paper.all
+      tag_all
+    end
   end
 
   def new
@@ -54,6 +60,10 @@ class PapersController < ApplicationController
   def destroy
     @paper.destroy if @paper
     redirect_to papers_path, notice: "delete success!"
+  end
+
+  def tag_all  # Get all tags
+    @tag_cloud = Paper.tag_counts_on(:tags)
   end
 
   private
