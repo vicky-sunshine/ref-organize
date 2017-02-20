@@ -1,20 +1,20 @@
-= link_to "Create Manually", new_paper_path, :class => "ui floated teal button", :tabindex => "0"
+/ = link_to "Create Manually", new_paper_path, :class => "ui floated teal button", :tabindex => "0"
 = link_to "Create by DOI", new_doi_papers_path, :class => "ui floated teal button", :tabindex => "0"
-.ui.items#refList
+.ui.segments#refList
   - @papers.each do |paper|
-    .item
-      .ui.container.segment
-        .content
-          = link_to paper_path(paper), method: "delete", data: { confirm: "check delete" }, :class => "ui circular right floated red icon button" do
-            i.remove.icon
-          = link_to edit_paper_path(paper), :class => "ui circular right floated blue icon button" do
-            i.edit.icon
-          a.header= paper.title
-          .meta= author_shorten(paper.author)   
-          .meta
-            = " #{paper.book_title}, #{paper.year}"
-          .description
-            i.icon.write
-            = paper.note
-
-        
+    .ui.segment
+      .ui.h5.header
+        = paper.title
+      = link_to paper_path(paper), method: "delete", data: { confirm: "check delete" }, :class => "ui circular right floated pink icon button" do
+        i.remove.icon
+      = link_to edit_paper_path(paper), :class => "ui circular right floated blue icon button" do
+        i.edit.icon
+      .ui.p
+        = author_shorten(paper.author)   
+      .ui.p
+        = " #{paper.book_title}, #{paper.year}"
+      br/
+      .ui.p
+        - paper.tag_list.each do |tag|
+          .ui.yellow.label 
+            = tag

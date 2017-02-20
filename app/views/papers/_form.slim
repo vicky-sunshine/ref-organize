@@ -28,5 +28,8 @@
   .field
     = f.label :note, :class => "label"
     = f.text_area :note, rows: 2
+  .field
+    = f.label :tag_list, :class => "label"
+    = f.text_field :tag_list
   = f.submit "Add Paper", :class => "ui primary button"
   .clear.divider
