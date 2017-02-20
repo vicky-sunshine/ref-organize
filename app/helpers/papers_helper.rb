@@ -1,5 +1,6 @@
 module PapersHelper
   def auther_shorten(auther)
+    return author if author.empty
     shortens = auther.split(" and ").map do |name|
       names = name.split(" ")
       family = names.pop
