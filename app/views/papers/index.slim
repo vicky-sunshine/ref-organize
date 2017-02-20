@@ -3,14 +3,14 @@
 .ui.items#refList
   - @papers.each do |paper|
     .item
-      .ui.container.segment style=""
+      .ui.container.segment
         .content
           = link_to paper_path(paper), method: "delete", data: { confirm: "check delete" }, :class => "ui circular right floated red icon button" do
             i.remove.icon
           = link_to edit_paper_path(paper), :class => "ui circular right floated blue icon button" do
             i.edit.icon
           a.header= paper.title
-          .meta= auther_shorten(paper.author)   
+          .meta= author_shorten(paper.author)   
           .meta
             = " #{paper.book_title}, #{paper.year}"
           .description
