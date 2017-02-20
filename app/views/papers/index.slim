@@ -1,21 +1,20 @@
-h1 papers
-= link_to "create new paper manually", new_paper_path
-br/
-= link_to "create new paper by doi", new_doi_papers_path
-table
-  thead
-    tr
-      td Title
-      td Author
-      td Book Title
-      td Year
-  tbody
-    - @papers.each do |paper|
-      tr
-        td= paper.title
-        td= paper.author
-        td= paper.book_title
-        td= paper.year 
-        td
-          = link_to "編輯", edit_paper_path(paper)
-          = link_to "刪除", paper_path(paper), method: "delete", data: { confirm: "check delete" }
+= link_to "Create Manually", new_paper_path, :class => "ui floated teal button", :tabindex => "0"
+= link_to "Create by DOI", new_doi_papers_path, :class => "ui floated teal button", :tabindex => "0"
+.ui.items#refList
+  - @papers.each do |paper|
+    .item
+      .ui.container.segment style=""
+        .content
+          = link_to paper_path(paper), method: "delete", data: { confirm: "check delete" }, :class => "ui circular right floated red icon button" do
+            i.remove.icon
+          = link_to edit_paper_path(paper), :class => "ui circular right floated blue icon button" do
+            i.edit.icon
+          a.header= paper.title
+          .meta= auther_shorten(paper.author)   
+          .meta
+            = " #{paper.book_title}, #{paper.year}"
+          .description
+            i.icon.write
+            = paper.note
+
+        

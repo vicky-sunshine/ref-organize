@@ -7,23 +7,23 @@ class PapersController < ApplicationController
     @papers = Paper.all
   end
 
-  # def new
-  #   @paper = Paper.new
-  # end
+  def new
+    @paper = Paper.new
+  end
 
   def new_doi
     @paper = Paper.new
   end
 
-  # def create
-  #   @paper = Paper.new(paper_params)
-  #
-  #   if @paper.save
-  #     redirect_to papers_path, notice: "new success!"
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @paper = Paper.new(paper_params)
+
+    if @paper.save
+      redirect_to papers_path, notice: "new success!"
+    else
+      render :new
+    end
+  end
 
   def create_doi
     doi = params[:paper][:doi]

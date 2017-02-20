@@ -1,7 +1,4 @@
-= form_for(@paper, url: create_doi_papers_path) do |f|
-  = f.label :doi
-  = f.text_field :doi
-  br/
-  = f.submit
-br/
-= link_to 'Back to paper index', papers_path
+= form_for(@paper, url: create_doi_papers_path, :html => { :class => "ui big form" }) do |f|
+  .ui.action.input
+    = f.text_field :doi, :placeholder=>"DOI", :class => "field"
+    = f.submit "Add Paper", :class => "ui primary submit button"
