@@ -33,15 +33,19 @@ class PapersController < ApplicationController
 
   def create_doi
     doi = params[:paper][:doi]
-    bib = Doi2bibtex::Doi2bibtex.new(doi)
-    if bib.nil?
-      redirect_to :new_doi, notice: "DOI not found!"
+    if doi.empty?
+      redirect_to new_doi_papers_path, notice: "DOI is empty!"
     else
-      @paper = Paper.new(bib.to_h)
-      if @paper.save
-        redirect_to papers_path, notice: "new success!"
+      bib = Doi2bibtex::Doi2bibtex.new(doi)
+      if bib.bibtex.nil?
+        redirect_to new_doi_papers_path, notice: "DOI not found!"
       else
-        render :new_doi
+        @paper = Paper.new(bib.to_h)
+        if @paper.save
+          redirect_to papers_path, notice: "new success!"
+        else
+          render :new_doi
+        end
       end
     end
   end
