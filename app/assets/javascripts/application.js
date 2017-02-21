@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require_tree .
 //= require semantic
+
+$(document).onload( function(){
+  $('.ui.sticky')
+    .sticky({
+      context: '#main',
+      offset: 84,
+  });
+});
