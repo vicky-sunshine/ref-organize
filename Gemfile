@@ -38,7 +38,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'doi2bibtex'
 
 gem 'slim'
-gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+# gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
+gem 'rails-assets-semantic', source: 'https://rails-assets.org'
 
 gem 'acts-as-taggable-on'
 

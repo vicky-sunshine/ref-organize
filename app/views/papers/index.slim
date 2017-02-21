@@ -1,8 +1,7 @@
 / = link_to "Create Manually", new_paper_path, :class => "ui floated teal button", :tabindex => "0"
-= link_to "Create by DOI", new_doi_papers_path, :class => "ui floated teal button", :tabindex => "0"
 .ui.segments#refList
   - @papers.each do |paper|
-    .ui.segment
+    .ui.segment.item
       .ui.h5.header
         = paper.title
       = link_to paper_path(paper), method: "delete", data: { confirm: "check delete" }, :class => "ui circular right floated pink icon button" do

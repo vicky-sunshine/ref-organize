@@ -6,9 +6,27 @@ html
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    script src="semantic/dist/semantic.min.js" 
   body
-    .ui.container style="margin-top: 4em; background-color:"
-      h1.ui.header
-        | Reference Organize
-      = yield
-          
+    .ui.top.fixed.stackable.teal.inverted.menu
+      .item style="font-size: 18px;"
+        | Reference Organize 
+      .right.menu
+        .item Logout
+    .ui.container#main style="margin-top: 6em;"
+      .ui.grid
+        .twelve.wide.column
+          #main
+            = yield
+        .four.wide.column
+          .ui.vertical.compact.menu.ui
+            a.item.active.teal
+              | Menu
+            a.item
+              .ui.icon.input
+                input placeholder="Search..." type="text"
+                  i.search.link.icon
+            = link_to "Add Reference by DOI", new_doi_papers_path, :class=>"item"
+            = link_to "Add Reference Manually", new_paper_path, :class=>"item"
+            a.item
+              | Export BibTex
