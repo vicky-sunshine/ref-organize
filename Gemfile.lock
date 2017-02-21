@@ -42,6 +42,7 @@ GEM
     acts-as-taggable-on (4.0.0)
       activerecord (>= 4.0)
     arel (7.1.4)
+    awesome_print (1.7.0)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -168,6 +169,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  awesome_print
   byebug
   coffee-rails (~> 4.2)
   doi2bibtex

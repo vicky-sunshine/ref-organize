@@ -1,0 +1,7 @@
+.ui.stacked.segment
+  .ui.dividing.header
+    | Bibtex
+  .ui.form
+    textarea readonly="readonly" rows="15"
+      =  @paper.bibtex
+= link_to 'Back to paper index', papers_path, :class => "ui right floated button"

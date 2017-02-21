@@ -6,6 +6,8 @@
         = paper.title
       = link_to paper_path(paper), method: "delete", data: { confirm: "check delete" }, :class => "ui circular right floated pink icon button" do
         i.remove.icon
+      = link_to bibtex_paper_path(paper), :class => "ui circular right floated yellow icon button" do
+        i.bold.icon
       = link_to edit_paper_path(paper), :class => "ui circular right floated blue icon button" do
         i.edit.icon
       .ui.p

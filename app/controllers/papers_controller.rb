@@ -1,7 +1,7 @@
 require 'doi2bibtex'
 
 class PapersController < ApplicationController
-  before_action :find_paper, only: [:edit, :update, :destroy]
+  before_action :find_paper, only: [:edit, :update, :destroy, :bibtex]
 
   def index
     if params[:tags_name]
@@ -37,10 +37,12 @@ class PapersController < ApplicationController
       redirect_to new_doi_papers_path, notice: "DOI is empty!"
     else
       bib = Doi2bibtex::Doi2bibtex.new(doi)
+      puts bib
       if bib.bibtex.nil?
         redirect_to new_doi_papers_path, notice: "DOI not found!"
       else
         @paper = Paper.new(bib.to_h)
+        @paper.bibtex = bib.bibtex
         if @paper.save
           redirect_to papers_path, notice: "new success!"
         else
@@ -64,6 +66,10 @@ class PapersController < ApplicationController
   def destroy
     @paper.destroy if @paper
     redirect_to papers_path, notice: "delete success!"
+  end
+
+  def bibtex
+    puts @paper.bibtex
   end
 
   def tag_all  # Get all tags

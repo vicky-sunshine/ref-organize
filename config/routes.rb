@@ -7,5 +7,8 @@ Rails.application.routes.draw do
       post :create_doi
       get 'tags/:tags_name', to: "papers#index", as: :tag  # Tag Routes
     end
+    member do
+      get :bibtex, to: "papers#bibtex"
+    end
   end
 end
