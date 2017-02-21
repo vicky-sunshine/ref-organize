@@ -38,7 +38,6 @@ gem 'doi2bibtex'
 
 gem 'slim'
 gem 'rails-assets-semantic', source: 'https://rails-assets.org'
-gem 'awesome_print'
 
 gem 'acts-as-taggable-on'
 
