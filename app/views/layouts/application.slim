@@ -20,12 +20,18 @@ html
           .ui.vertical.compact.menu.ui.sticky
             a.item.active.teal
               | Menu
-            a.item
+            a.item.fluid
               .ui.icon.input
                 input placeholder="Search..." type="text"
                   i.search.link.icon
             = link_to 'Home', papers_path, :class =>"item"
             = link_to "Add Reference by DOI", new_doi_papers_path, :class=>"item"
-            / = link_to "Add Reference Manually", new_paper_path, :class=>"item"
-            a.item
-              | Export BibTex
+            / = form_for (tag_papers_path, method: "get") do |f|
+            /   = f.label :tags_name
+            /   = f.text_field :tags_name)
+            /   = f.submit "Search"
+            / 
+            / a.item
+            /   | Export BibTex
+            
+            

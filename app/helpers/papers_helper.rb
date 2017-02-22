@@ -6,7 +6,7 @@ module PapersHelper
     shortens = author.split(" and ").map do |name|
       names = name.split(/[\s-]/)
       family = names.pop
-      personal = names.map { |n| n[0] + ". "}.join
+      personal = names.map { |n| n[0].to_s + ". "}.join
       personal + family
     end
     last = shortens.pop
